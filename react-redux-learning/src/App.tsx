@@ -53,10 +53,4 @@ function App() {
   );
 }
 
-// const App: React.FC = (): ReactElement => {
-//   //return ({<div>"Hello World"</div>});
-//   //return ("<div/>")
-//   return <div>Hello World</div>
-// };
-
 export default App;
