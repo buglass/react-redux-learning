@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction, ThunkAction } from '@reduxjs/toolkit';
-import { RootState } from '../../app/store';
+import { RootState } from '../../app/rootReducer';
 
 export interface IState {
   region: string;
