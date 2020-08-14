@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setRegion } from '../internationalisation/internationalisationSlice';
+import { setRegion } from '../internationalisationSlice';
 
-export function InternationalisationComponent () {
+export function InternationalisationSelection () {
   const dispatch = useDispatch();
   
   return (
