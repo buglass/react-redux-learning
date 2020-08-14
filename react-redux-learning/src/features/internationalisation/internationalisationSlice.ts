@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction, ThunkAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/rootReducer';
+import { AppThunk } from '../../app/types';
 
 export interface IState {
   region: string;
@@ -22,7 +23,7 @@ export const internationalisationSlice = createSlice({
 const { set } = internationalisationSlice.actions;
 
 export const setRegion = (region: string):
-  ThunkAction<void, ReturnType<typeof internationalisationSlice.reducer>, unknown, PayloadAction<string>> =>
+  AppThunk<string> =>
   async dispatch =>
 {
   dispatch(set(region));

@@ -1,8 +1,6 @@
-import {
-  createSlice,
-  PayloadAction,
-  ThunkAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/rootReducer';
+import { AppThunk } from '../../app/types';
 
 export interface IState {
   counter: number;
@@ -47,7 +45,7 @@ export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
 // Use ThunkAction with ReturnType and PayloadAction for a typed Thunk
 export const incrementAsync = (amount: number):
-  ThunkAction<void, ReturnType<typeof counterSlice.reducer>, unknown, PayloadAction<number>> => // Type support
+  AppThunk<number> =>
   async dispatch =>
 {
   setTimeout(() => { dispatch(incrementByAmount(amount)); }, 1000);
