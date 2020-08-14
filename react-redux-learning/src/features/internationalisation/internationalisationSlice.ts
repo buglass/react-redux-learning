@@ -19,9 +19,9 @@ export const internationalisationSlice = createSlice({
   }
 });
 
-export const { set } = internationalisationSlice.actions;
+const { set } = internationalisationSlice.actions;
 
-export const incrementAsync = (region: string):
+export const setRegion = (region: string):
   ThunkAction<void, ReturnType<typeof internationalisationSlice.reducer>, unknown, PayloadAction<string>> =>
   async dispatch =>
 {
