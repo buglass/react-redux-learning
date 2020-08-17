@@ -1,3 +1,5 @@
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import counterReducer, { decrement, increment, incrementAsync, incrementByAmount } from "./counterSlice";
 
 describe('counterSlice', () => {
@@ -87,5 +89,14 @@ describe('counterSlice', () => {
         counter: -2
       }
     );
+  });
+
+  it('should incrementAsync by -2 from 10 correctly', () => {
+    const middlewares = [thunk];
+    const mockStore = configureMockStore(middlewares);
+    const store = mockStore({ counter: 8});
+    return store.dispatch(incrementAsync(-2)).then(() => {
+      expect(store.getState()).toEqual({ counter: 8 })
+    });
   });
 });
