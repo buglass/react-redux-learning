@@ -30,7 +30,7 @@ export function CounterAdjustment() {
         <button id="incrementByAmount" onClick={() => dispatch(incrementByAmount(Number(incrementAmount) || 0))}>
           Add Amount
         </button>
-        <button onClick={() => dispatch(incrementAsync(Number(incrementAmount) || 0))} >
+        <button id="incrementByAmountAsync" onClick={() => dispatch(incrementAsync(Number(incrementAmount) || 0))} >
           Add Async
         </button>
       </div>

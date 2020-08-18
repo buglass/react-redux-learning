@@ -27,4 +27,16 @@ describe('counter tests', () => {
         cy.get('#incrementByAmount').click()
         cy.get('#counterValue').should('have.text', '3')
     });
+
+    it('increments by specific amount using async correctly', () => {
+        cy.visit('http://localhost:3000')
+        cy.get('#incrementAmount').clear()
+        cy.get('#incrementAmount').type('3')
+        cy.get('#incrementByAmountAsync').click()
+        // Feels a bit hacky.
+        // Use contains to ensure a minimum timeout is allowed for the element to update.
+        // Then use should have text to ensure the precise text exists.
+        cy.contains('#counterValue', '3', {timeout: 11000})
+        cy.get('#counterValue').should('have.text', '3')
+    });
 })
