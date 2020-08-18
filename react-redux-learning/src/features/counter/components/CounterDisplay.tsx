@@ -6,7 +6,7 @@ export function CounterDisplay () {
   return (
     <div>
       <span>Current count: </span>
-      <span>{useSelector(selectCount)}</span>
+      <span id="counterValue">{useSelector(selectCount)}</span>
     </div>
   )
 }
