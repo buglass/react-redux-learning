@@ -14,19 +14,20 @@ export function CounterAdjustment() {
   return (
     <div>
       <div>
-        <button onClick={() => dispatch(increment())}>
+        <button id="incrementCounter" onClick={() => dispatch(increment())}>
           Increment
         </button>
-        <button onClick={() => dispatch(decrement())} >
+        <button id="decrementCounter" onClick={() => dispatch(decrement())} >
           Decrement
         </button>
       </div>
       
       <div>
         <input
+          id="incrementAmount"
           value={incrementAmount}
           onChange={e => setIncrementAmount(e.target.value)} />
-        <button onClick={() => dispatch(incrementByAmount(Number(incrementAmount) || 0))}>
+        <button id="incrementByAmount" onClick={() => dispatch(incrementByAmount(Number(incrementAmount) || 0))}>
           Add Amount
         </button>
         <button onClick={() => dispatch(incrementAsync(Number(incrementAmount) || 0))} >
