@@ -7,8 +7,8 @@ export function InternationalisationSelection () {
   
   return (
     <div>
-        <button onClick={() => dispatch(setRegion('English'))}>English</button>
-        <button onClick={() => dispatch(setRegion('Cymraeg'))}>Cymraeg</button>
+        <button id="selectEnglish" onClick={() => dispatch(setRegion('English'))}>English</button>
+        <button id="selectCymraeg" onClick={() => dispatch(setRegion('Cymraeg'))}>Cymraeg</button>
     </div>
   )
 }

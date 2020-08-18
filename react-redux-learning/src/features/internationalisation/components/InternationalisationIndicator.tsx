@@ -6,9 +6,10 @@ import '../../../styles.css';
 // Just a testbed for a visual check of the display coming through.
 // Could have a pretty flag though.
 export function InternationalisationIndicator () {
+  const region = useSelector(selectRegion);
   return (
-    <div id="internationalisationIndicatorDiv" className="englishStyle">
-      <span>{useSelector(selectRegion)}</span>
+    <div id="internationalisationIndicatorDiv" className={region.style}>
+      <span>{region.name}</span>
     </div>
   )
 }
