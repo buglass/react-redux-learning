@@ -1,5 +1,5 @@
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+//import configureMockStore from 'redux-mock-store';
+//import thunk from 'redux-thunk';
 import counterReducer, { decrement, increment, incrementAsync, incrementByAmount } from "./counterSlice";
 
 describe('counterSlice', () => {
@@ -91,12 +91,22 @@ describe('counterSlice', () => {
     );
   });
 
-  it('should incrementAsync by -2 from 10 correctly', () => {
-    const middlewares = [thunk];
-    const mockStore = configureMockStore(middlewares);
-    const store = mockStore({ counter: 8});
-    return store.dispatch(incrementAsync(-2)).then(() => {
-      expect(store.getState()).toEqual({ counter: 8 })
-    });
-  });
+  // TODO - Implement testing for Thunks
+  // The below resulted in a false positive (the mock store was incorrectly initialised with a value of 8).
+  // The store.getState() does not provide the state! See https://github.com/reduxjs/redux-mock-store/issues/71.
+  // The correct way of testing the Thunk is to check getActions to ensure that the expected action
+  // is dispatched to the reducer. The below also attempts to check the logic of that action which is already done above.
+  // A clearer separation of actions and reducer might make this more obvious.
+  // The redux-actions-assertions library is designed to facilitate the integration test of reducer and action that the
+  // below is attempting but this might not be the correct way forward anyway.
+  // Putting this on-hold for now.
+  // 
+  // it('should incrementAsync by -2 from 10 correctly', () => {
+  //   const middlewares = [thunk];
+  //   const mockStore = configureMockStore(middlewares);
+  //   const store = mockStore({ counter: 10 });
+  //   return store.dispatch(incrementAsync(-2)).then(() => {
+  //     expect(store.getState()).toEqual({ counter: 8 })
+  //   });
+  // });
 });
